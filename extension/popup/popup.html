@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Cookierule</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="brand"><img src="../icons/icon16.png" alt="" width="16" height="16"> Cookierule</div>
+    <div class="site" id="site" title="Current site">…</div>
+    <div class="spacer"></div>
+    <input type="search" id="search" placeholder="Search name or value" autocomplete="off">
+    <button id="add" title="Add cookie">+ Add</button>
+  </header>
+
+  <div id="notice" class="notice" hidden></div>
+
+  <main>
+    <table id="table">
+      <thead>
+        <tr><th class="c-prot" title="Protected cookies survive Delete all">🛡</th><th>Name</th><th>Value</th><th class="c-domain">Domain</th><th class="c-flags">Flags</th><th class="c-exp">Expires</th><th class="c-act"></th></tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <div id="empty" class="empty" hidden>No cookies for this site.</div>
+  </main>
+
+  <form id="editor" class="editor" hidden>
+    <div class="grid">
+      <label>Name <input name="name" required></label>
+      <label>Domain <input name="domain" placeholder="example.com or .example.com"></label>
+      <label class="wide">Value <textarea name="value" rows="2"></textarea></label>
+      <label>Path <input name="path" value="/"></label>
+      <label>Expires <input name="expires" type="datetime-local"> <small>empty = session</small></label>
+      <label>SameSite
+        <select name="sameSite">
+          <option value="unspecified">Unspecified</option>
+          <option value="lax">Lax</option>
+          <option value="strict">Strict</option>
+          <option value="no_restriction">None</option>
+        </select>
+      </label>
+      <div class="checks">
+        <label><input type="checkbox" name="secure"> Secure</label>
+        <label><input type="checkbox" name="httpOnly"> HttpOnly</label>
+        <label><input type="checkbox" name="hostOnly"> Host only</label>
+      </div>
+    </div>
+    <div class="row">
+      <button type="submit" class="primary" id="save">Save</button>
+      <button type="button" id="cancel">Cancel</button>
+      <span class="err" id="err"></span>
+    </div>
+  </form>
+
+  <footer class="bar">
+    <button id="refresh" title="Reload list">↻</button>
+    <span class="muted" id="count"></span>
+    <div class="spacer"></div>
+    <button id="import">Import…</button>
+    <button id="export">Export ▾</button>
+    <button id="deleteAll" class="danger" title="Deletes every cookie for this site except protected ones">Delete all</button>
+    <button id="options" title="Profiles, license, settings">⚙</button>
+    <input type="file" id="file" accept=".json,.txt,application/json,text/plain" hidden>
+  </footer>
+  <div id="exportMenu" class="menu" hidden>
+    <button data-fmt="cookierule">Cookierule JSON</button>
+    <button data-fmt="cookie-editor">Cookie-Editor JSON</button>
+    <button data-fmt="netscape">cookies.txt (Netscape) <span class="pro">Pro</span></button>
+  </div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

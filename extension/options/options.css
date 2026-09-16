@@ -1,0 +1,45 @@
+:root {
+  --bg: #ffffff; --bg2: #f6f8fa; --fg: #1f2328; --muted: #656d76; --border: #d0d7de;
+  --accent: #1f6feb; --accent-fg: #fff; --danger: #cf222e; --ok: #1a7f37;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117; --bg2: #161b22; --fg: #e6edf3; --muted: #8b949e; --border: #30363d;
+    --accent: #388bfd; --accent-fg: #fff; --danger: #f85149; --ok: #3fb950;
+  }
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  margin: 0; padding: 24px 16px 48px;
+  font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--fg); background: var(--bg);
+  max-width: 720px; margin-inline: auto;
+}
+header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+h1 { font-size: 20px; margin: 0; }
+h2 { font-size: 15px; margin: 0 0 8px; display: flex; align-items: center; gap: 8px; }
+section { padding: 16px 0; border-top: 1px solid var(--border); }
+p { margin: 6px 0; }
+.muted { color: var(--muted); }
+.error { color: var(--danger); }
+.statusline { font-weight: 500; }
+.statusline.ok { color: var(--ok); }
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 8px 0; }
+input[type="text"] {
+  flex: 1; min-width: 260px; font: inherit; color: var(--fg); background: var(--bg);
+  border: 1px solid var(--border); border-radius: 6px; padding: 7px 10px;
+}
+button, .button {
+  font: inherit; color: var(--fg); background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 6px; padding: 7px 14px; cursor: pointer; text-decoration: none; display: inline-block;
+}
+button:hover, .button:hover { filter: brightness(0.97); }
+.primary { background: var(--accent); color: var(--accent-fg); border-color: transparent; font-weight: 600; }
+.danger { color: var(--danger); border-color: var(--danger); background: transparent; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+.pill { font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 999px; background: var(--accent); color: var(--accent-fg); }
+.pill.off { display: none; }
+label.check { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+code { background: var(--bg2); padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+a { color: var(--accent); }

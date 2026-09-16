@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Cookierule settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <header>
+    <h1><img src="../icons/icon32.png" alt="" width="24" height="24"> Cookierule <span id="version" class="muted"></span></h1>
+    <p class="muted">Cookies stay in your browser. The only network request this extension ever makes is the optional license check. <a id="privacyLink" target="_blank">Privacy</a> · <a id="siteLink" target="_blank">Website</a> · <a id="supportLink">Support</a></p>
+  </header>
+
+  <section>
+    <h2>Pro license</h2>
+    <p id="licenseStatus" class="statusline"></p>
+    <div id="licenseFree">
+      <p>Free includes everything you need on one machine: view, edit, delete, protect, import and export. Pro ($9 one-time) adds named cookie profiles, sync across devices, cookies.txt export and bulk rules across all sites. <a id="buyLink" target="_blank">Get Pro</a> or buy the Headrule + Cookierule bundle.</p>
+      <div class="row">
+        <input id="licenseKey" placeholder="Paste your license key" spellcheck="false">
+        <button id="activateBtn" class="primary">Activate</button>
+      </div>
+      <p id="licenseError" class="error" hidden></p>
+    </div>
+    <div id="licensePro" hidden>
+      <div class="row">
+        <button id="validateBtn">Re-check</button>
+        <button id="deactivateBtn">Deactivate on this browser</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Permissions</h2>
+    <p>By default Cookierule only reads the cookies of the tab you open it on. To see and manage cookies for <em>all</em> sites (Pro bulk rules), grant the optional permission.</p>
+    <div class="row">
+      <span id="allUrlsStatus" class="statusline"></span>
+      <button id="grantAllUrls">Grant access to all sites</button>
+      <button id="revokeAllUrls">Revoke</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Protected cookies</h2>
+    <p>Protected cookies are skipped by "Delete all". Toggle the shield in the popup.</p>
+    <ul id="protectedList" class="list"></ul>
+  </section>
+
+  <section>
+    <h2>Profiles <span class="pill" id="profilesPill">Pro</span></h2>
+    <p>Save the current site's cookies under a name and swap between them in one click. Coming in the next build.</p>
+  </section>
+
+  <section>
+    <h2>Behaviour</h2>
+    <label><input type="checkbox" id="confirmDelete"> Ask before deleting a cookie</label>
+  </section>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>

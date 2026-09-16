@@ -1,0 +1,4 @@
+node_modules/
+dist/
+store/raw-*.png
+.DS_Store
